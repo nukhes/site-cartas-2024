@@ -1,0 +1,33 @@
+header {
+    position: fixed;
+    z-index: 99;
+    box-shadow: 0 0 30px black;
+    width: 100vw;
+    background-color: rgb(104, 44, 99);
+    height: 110px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px 0 20px;
+    align-items: center;
+    color: white;
+
+}
+
+header a {
+    color: rgb(7, 7, 7);
+    background-color: rgb(230, 230, 230);
+    border-radius: 8px;
+    text-decoration: none;
+    padding: 20px;
+    transition: .15s;
+}
+
+header a:hover {
+    background-color: rgb(255, 255, 255);
+    transform: scale(1.05);
+}
+
+#logo { 
+    font-size: 28pt;
+    font-weight: bold;
+}
