@@ -1,0 +1,23 @@
+.card {
+  width: 21rem;
+  height: 30rem;
+  background-color: aqua;
+  border-radius: 12px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.432);
+}
+
+#input .card:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+#input .card {
+  transition: .15s;
+  width: 7rem;
+  height: 10rem;
+}
+
+#input {
+  display: flex;
+  gap: 20px;
+}

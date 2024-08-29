@@ -10,8 +10,12 @@
 }
 
 body {
-
-    width: 705px;
-    height: 998px;
-    background-color: aqua;
+    padding: 130px 0 0 0;
+    background-color: rgb(244, 228, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
+
