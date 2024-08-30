@@ -1,30 +1,28 @@
-card = document.querySelector('#input').children;
+const card = document.querySelector('#input').children;
+const mainCard = document.querySelector("#main");
+actualIndex = 0;
+
 urlList = [
-  "https://1.bp.blogspot.com/-dlUjCozhYmI/YIrzHBwiMHI/AAAAAAACJeU/cDyzvoOwR3sM8JSk4arjNzLZ2fJEF0mxwCPcBGAsYHg/s1920/Ijiranaide%252C%2BNagatoro-san%2B-%2BEpisode%2B3%2B-%2BNagatoro%2BTowels%2BHair.jpg",
-  "https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=85,width=480,height=720/catalog/crunchyroll/3cdd3ac7e5d8be3bb97c9e39bc1114d4.jpe",
-  "https://upload.wikimedia.org/wikipedia/pt/thumb/0/00/Capa_do_primeiro_volume_do_mang%C3%A1_Ijiranaide%2C_Nagatoro-san.jpg/250px-Capa_do_primeiro_volume_do_mang%C3%A1_Ijiranaide%2C_Nagatoro-san.jpg",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUYiYnI4Uiyr0D4uomBGy1_rML_EypNn0kgQ&s",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkHbFdhDWB8snzqJ24THfeqrDUfBhn7bZpLg&s"
+  "../card/01.jpg",
+  "../card/02.jpg",
+  "../card/03.jpg",
+  "../card/04.jpg",
+  "../card/05.jpg",
 ];
-urlListRandom = shuffleArray(urlList);
 
-function changeMainCard(url) {
-  document.querySelector("#main").src = url;
+urlList = shuffleArray(urlList);
+console.log(`lista embaralhada: ${urlList}`); // debug
 
-  next = urlListRandom[urlListRandom.indexOf(url)+1];
-
-  if (urlListRandom.length <= next) {
-    alert("Fim da história");
-  } else {
-    addListener(card[0], next);
-    addListener(card[1], next);
-  }
+// Adiciona o evento de clique para as cartas
+for (let i = 0; i <= 1; i++) {
+  addListener(card[i]);
 }
 
-function addListener(e, url) {
-  e.addEventListener("click", () => {
-    changeMainCard(url);
-  })
+function changeMainCard() {
+  mainCard.src = urlList[actualIndex];
+  console.log(`imagem atual: ${urlList[actualIndex]}`); // debug
+  console.log(`prox imagem: ${urlList[actualIndex+1]}`); // debug
+
 }
 
 function shuffleArray(array) {
@@ -32,8 +30,18 @@ function shuffleArray(array) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
   }
+  array.unshift("../card/00.jpg");
   return array;
 }
 
-addListener(card[0], 0);
-addListener(card[1], 0);
+function addListener(e) {
+  e.addEventListener("click", () => {
+    if (urlList.length <= actualIndex+1) {
+      alert("Fim da história");
+      window.location.reload();
+    } else {
+      actualIndex++;
+      changeMainCard();
+    }
+  })
+}
