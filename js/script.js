@@ -29,10 +29,22 @@ function changeMainCard() {
     behavior: "smooth"
   });
 
+  actualIndex++;
+
   for (let i = 0; i <= 1; i++) {
     card[i].style.backgroundColor = getRandomColor();
   }
 
+}
+
+function addListener(e) {
+  e.addEventListener("click", () => {
+    if (urlList.length <= actualIndex) {
+      alert("Fim da história");
+    } else {
+      changeMainCard();
+    }
+  })
 }
 
 function shuffleArray(array) {
@@ -41,27 +53,15 @@ function shuffleArray(array) {
       [array[i], array[j]] = [array[j], array[i]];
   }
   array.unshift("../card/00.jpg");
+  array.push("../card/99.jpg");
   return array;
 }
 
-function addListener(e) {
-  e.addEventListener("click", () => {
-    if (urlList.length <= actualIndex+1) {
-      alert("Fim da história");
-    } else {
-      actualIndex++;
-      changeMainCard();
-    }
-  })
-}
-
 function getRandomColor() {
-  // Generate a random color in hexadecimal format
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
+  const getVibrantComponent = () => Math.floor(Math.random() * 128) + 128;
+  const r = getVibrantComponent().toString(16).padStart(2, '0');
+  const g = getVibrantComponent().toString(16).padStart(2, '0');
+  const b = getVibrantComponent().toString(16).padStart(2, '0');
+  return `#${r}${g}${b}`;
 }
 

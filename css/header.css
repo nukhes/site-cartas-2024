@@ -5,7 +5,7 @@ header {
     box-shadow: 0 0 30px black;
     width: calc(100% + 20px);
     background-color: #1a1a24;
-    height: 110px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     padding: 0 20px 0 40px;
@@ -19,7 +19,7 @@ header a {
     background-color: rgb(230, 230, 230);
     border-radius: 8px;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
     transition: .15s;
 }
 
