@@ -16,13 +16,22 @@ console.log(`lista embaralhada: ${urlList}`); // debug
 // Adiciona o evento de clique para as cartas
 for (let i = 0; i <= 1; i++) {
   addListener(card[i]);
+  card[i].style.backgroundColor = getRandomColor();
 }
 
 function changeMainCard() {
-
-  main.InnerHTML += `<img class="card" src="${urlList[actualIndex]}" alt="" srcset="">`
+  main.innerHTML += `<img class="card" src="${urlList[actualIndex]}">`
   console.log(`imagem atual: ${urlList[actualIndex]}`); // debug
   console.log(`prox imagem: ${urlList[actualIndex+1]}`); // debug
+
+  window.scroll({
+    top: 999999999999,
+    behavior: "smooth"
+  });
+
+  for (let i = 0; i <= 1; i++) {
+    card[i].style.backgroundColor = getRandomColor();
+  }
 
 }
 
@@ -39,10 +48,20 @@ function addListener(e) {
   e.addEventListener("click", () => {
     if (urlList.length <= actualIndex+1) {
       alert("Fim da história");
-      window.location.reload();
     } else {
       actualIndex++;
       changeMainCard();
     }
   })
 }
+
+function getRandomColor() {
+  // Generate a random color in hexadecimal format
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
