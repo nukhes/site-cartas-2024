@@ -1,5 +1,5 @@
 const card = document.querySelector('#input').children;
-const mainCard = document.querySelector("#main");
+const main = document.querySelector("#main");
 actualIndex = 0;
 
 urlList = [
@@ -19,7 +19,8 @@ for (let i = 0; i <= 1; i++) {
 }
 
 function changeMainCard() {
-  mainCard.src = urlList[actualIndex];
+
+  main.InnerHTML += `<img class="card" src="${urlList[actualIndex]}" alt="" srcset="">`
   console.log(`imagem atual: ${urlList[actualIndex]}`); // debug
   console.log(`prox imagem: ${urlList[actualIndex+1]}`); // debug
 
