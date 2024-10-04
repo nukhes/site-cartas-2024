@@ -36,10 +36,9 @@ const urlList = [
 ];
 
 
-export function randomPath() {
-  switch (getRandom()) {
-
-  }
+export function randomPath(i = 0) {
+  getRandom()
+  path[]
 }
 
 function getRandom() {
