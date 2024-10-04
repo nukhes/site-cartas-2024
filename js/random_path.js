@@ -37,8 +37,11 @@ const urlList = [
 
 
 export function randomPath(i = 0) {
-  getRandom()
-  path[]
+  if (i > 3) {
+    return;
+  }   
+  path[i] = getRandom();
+  randomPath(i += 1);
 }
 
 function getRandom() {
