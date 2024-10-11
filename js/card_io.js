@@ -57,6 +57,7 @@ export function getRandomColor() {
 // show all choosen cards like an HQ 
 export function showAll(p, url) {
 	let route = p[0] + 1
+	console.log(p)
 
 	main.innerHTML = '';
 	input.innerHTML = '';
