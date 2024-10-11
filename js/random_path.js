@@ -1,6 +1,5 @@
 export var path = [1, 1, 1, 1];
-
-const urlList = [
+export const urlList = [
   "./card/-1.jpg",
   [
     "./card/00.jpg",
@@ -37,13 +36,11 @@ const urlList = [
 
 
 export function randomPath(i = 0) {
+
   if (i > 3) {
     return;
-  }   
-  path[i] = getRandom();
-  randomPath(i += 1);
-}
+  }
 
-function getRandom() {
-  return Math.round(Math.random());
+  path[i] = Math.round(Math.random());
+  randomPath(i += 1);
 }
