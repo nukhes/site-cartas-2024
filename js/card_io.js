@@ -59,7 +59,7 @@ export function showAll(p, url) {
 	let route = p[0] + 1
 	console.log(p)
 
-	main.innerHTML = '';
+	main.innerHTML = "";
 	input.innerHTML = '';
 
 	const routes = [
